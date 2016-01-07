@@ -1,3 +1,5 @@
+package Generic;
+
 /**
  * Created by gerard on 06-01-2016.
  */

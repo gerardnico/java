@@ -5,7 +5,7 @@ package Config;
 /**
  * Created by gerard on 06-01-2016.
  */
-public class DemoEnumConfigSet {
+public class DemoConfigSet {
 
     public static void main(String[] args) {
 

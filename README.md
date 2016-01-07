@@ -13,5 +13,5 @@ All demo class have:
 
   * [Generic](src/Generic)
   * [Enum](src/Enum)
-  * [Configuuation values](src/Config)
+  * [Configuration values](src/Config)
   

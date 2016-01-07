@@ -21,7 +21,7 @@ There is no demonstration there.
 
  
 ### DemoConfigSet
-A configuration values system implementation through a [configSet](src/Config/ConfigSet.java).
+A configuration values system implementation through a [configSet](ConfigSet.java).
 
 A config set that lets you use:
 
@@ -31,6 +31,6 @@ A config set that lets you use:
 as configuration parameters.
 
 As the unique key is the class name, you can't have two Integers with the class Integer.class, 
-you need to encapsulate them in a separate class (See [Length](src/Config/Length.java)).
+you need to encapsulate them in a separate class (See [Length](Length.java)).
 
-Demo: [DemoConfigSet](src/Config/DemoConfigSet.java)
+Demo: [DemoConfigSet](DemoConfigSet.java)

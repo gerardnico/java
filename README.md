@@ -1,17 +1,16 @@
-# Java Type Demo (Generic, Enum, Config, ...)
+# Java - Demo
 
 ## Introduction
-A repository to demonstrate different data type manipulation in Java.
+A repository to demonstrate different data type and process manipulation in Java.
 
-All demo class have:
-
-  * a demo prefix 
-  * and a main method
-  
   
 ## Demos
 
+### Data Type
   * [Generic](src/Generic)
   * [Enum](src/Enum)
   * [Configuration values](src/Config)
+
+### Conccurency
+  * [Concurrency](src/Concurrency)
   

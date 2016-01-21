@@ -6,9 +6,9 @@ package Concurrency;
  * Tutorial
  * See <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/interrupt.html">Interrupts</a>
  * <p>
- * {@link SleepMessages} modified to support interrupts.
+ * {@link MessagesSleep} modified to support interrupts.
  */
-public class SleepMessagesWithInterrupt implements Runnable {
+public class MessagesWithInterrupt implements Runnable {
 
     private static final String[] IMPORTANT_INFO = new String[]{
             "Mares eat oats",
@@ -21,7 +21,7 @@ public class SleepMessagesWithInterrupt implements Runnable {
             throws InterruptedException {
 
 
-        Thread thread = new Thread(new SleepMessagesWithInterrupt());
+        Thread thread = new Thread(new MessagesWithInterrupt());
         thread.start();
         long startTime = System.currentTimeMillis();
         while (thread.isAlive()) {
@@ -32,8 +32,6 @@ public class SleepMessagesWithInterrupt implements Runnable {
             }
             thread.join(1000);
         }
-
-
 
 
 

@@ -6,7 +6,7 @@ package Concurrency;
  * Tutorial
  * See <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html">Pausing Execution with Sleep</a>
  */
-public class SleepMessages {
+public class MessagesSleep {
     public static void main(String args[])
             throws InterruptedException {
         String importantInfo[] = {

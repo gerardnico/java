@@ -13,7 +13,7 @@ A repository to demonstrate different data type and process manipulation in Java
   * [Configuration values](src/Config)
   * [Time](src/Time)
 
-### Conccurency
+### Concurrency
 
   * [Concurrency](src/Concurrency)
 

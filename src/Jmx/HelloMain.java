@@ -6,7 +6,7 @@ package Jmx;
 import java.lang.management.*;
 import javax.management.*;
 
-public class Main {
+public class HelloMain {
 
     public static void main(String[] args) throws Exception {
 

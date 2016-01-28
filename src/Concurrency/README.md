@@ -18,14 +18,19 @@ This class extends the [online documentation (gerardnico.com)](http://gerardnico
   
 ## Concurrency Problems
 
-  * [Counter](Counter.java) shows a class with an [interleave problem] (ie Interference)](http://gerardnico.com/wiki/concurrency/interference)
+  * [Counter](Counter.java) shows a class with an [interleave problem (ie Interference)](http://gerardnico.com/wiki/concurrency/interference)
   * [Deadlock](Deadlock.java) shows a class with a deadlock caused by [Thread interference](http://gerardnico.com/wiki/concurrency/interference)
   
-## Thread Communication
+## Thread Communication (Synchronization)
 
-  * [ProducerConsumerExample](ProducerConsumerExample.java) that demonstrate a guarded block design with the [Message](Message.java) shared data.
 
-## Thread Locks
+### Thread Locks
 
   * [Deadlock](Deadlock.java) Example of Deadlock with implicit lock (monitor) caused by [Thread interference](http://gerardnico.com/wiki/concurrency/interference)
   * [SafeLock](Safelock.java) Use of a [lock object](http://gerardnico.com/wiki/java/concurrency/locks) to resolve the [Deadlock example](Deadlock.java) 
+
+
+### Guarded block
+  * [ProducerConsumerExample](ProducerConsumerExample.java) that demonstrate a [guarded block](http://gerardnico.com/wiki/concurrency/guarded_block) design with the [Message](Message.java) shared data.
+  * [ProducerConsumerWithBlockingQueue](ProducerConsumerWithBlockingQueue.java) that demonstrate a a [blocking queue](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html) utilisation.
+

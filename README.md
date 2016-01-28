@@ -1,7 +1,8 @@
 # Java - Demo
 
 ## Introduction
-A repository to demonstrate different data type and process manipulation in Java.
+A repository to demonstrate different data type and process manipulation with the Java SDK. (ie no other libraries are 
+needed)
 
   
 ## Demos

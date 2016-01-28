@@ -18,10 +18,14 @@ This class extends the [online documentation (gerardnico.com)](http://gerardnico
   
 ## Concurrency Problems
 
-  * [Counter](Counter.java) shows a class with an interleave problem
-  * [Deadlock](Deadlock.java) shows a class with a deadlock
+  * [Counter](Counter.java) shows a class with an [interleave problem] (ie Interference)](http://gerardnico.com/wiki/concurrency/interference)
+  * [Deadlock](Deadlock.java) shows a class with a deadlock caused by [Thread interference](http://gerardnico.com/wiki/concurrency/interference)
   
 ## Thread Communication
 
   * [ProducerConsumerExample](ProducerConsumerExample.java) that demonstrate a guarded block design with the [Message](Message.java) shared data.
 
+## Thread Locks
+
+  * [Deadlock](Deadlock.java) Example of Deadlock with implicit lock (monitor) caused by [Thread interference](http://gerardnico.com/wiki/concurrency/interference)
+  * [SafeLock](Safelock.java) Use of a [lock object](http://gerardnico.com/wiki/java/concurrency/locks) to resolve the [Deadlock example](Deadlock.java) 

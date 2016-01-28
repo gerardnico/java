@@ -11,6 +11,9 @@ package Concurrency;
  *
  * When Deadlock runs, it's extremely likely that both threads will block when they attempt to invoke bowBack.
  * Neither block will ever end, because each thread is waiting for the other to exit bow.
+ *
+ * You may start it two times if it doesn't lock the first time. When using an IDE, the compile operation may add
+ * an additional time.
  */
 
 public class Deadlock {

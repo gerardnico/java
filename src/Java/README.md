@@ -9,10 +9,10 @@ needed)
 
 ### Data Type
 
-  * [Generic](src/Generic)
-  * [Enum](src/Enum)
-  * [Configuration values](src/Config)
-  * [Time](src/Time)
+  * [Generic](Generic)
+  * [Enum](Enum)
+  * [Configuration values](Config)
+  * [Time](Time)
 
 ### Concurrency
 
@@ -20,8 +20,12 @@ needed)
 
 ### JMX
 
-  * [Jmx](src/Jmx)
+  * [Jmx](Jmx)
   
 ### Design Pattern
 
-  * [Visitor](src/Visitor)
+  * [Visitor](Visitor)
+
+### Service Provider Interfaces (Extension)
+
+  * [Service Provider Interfaces](Service)

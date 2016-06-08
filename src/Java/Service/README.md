@@ -1,4 +1,8 @@
-# Service
+# Service Provider Interfaces
 
-See [Application.java}(Application.java)
+See:
+
+  * [Main class: Application.java](Application.java)
+  * [SPI tutorial](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html)
+
 

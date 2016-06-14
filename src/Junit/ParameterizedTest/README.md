@@ -1,4 +1,4 @@
-# Junit -Parametrized Test
+# Junit - Parametrized Test
 
 ## Introduction
 

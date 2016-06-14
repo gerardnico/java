@@ -9,6 +9,6 @@ Junit is an xUnit framework implementation on Java.
 
 This directory contains two demos:
 
-  * [Parametrized Test](ParametrizedTest). Same test method but with different parameters values.
+  * [Parametrized Test](ParameterizedTest). Same test method but with different parameters values.
   * [External Resources as Parameters for Parametrized Test](ExternalResourceAsParameter)
   

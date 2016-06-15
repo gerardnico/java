@@ -16,7 +16,7 @@ public class MyPrints {
     }
 
     static void printInsideStatic(Class claz, String log){
-        System.out.println(claz.getSimpleName()+", (static) "+ log ) ;
+        System.out.println(claz.getSimpleName()+", (static method) "+ log ) ;
     }
 
 }

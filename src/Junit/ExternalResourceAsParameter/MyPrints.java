@@ -12,7 +12,15 @@ public class MyPrints {
 
 
     static void printInsideObject(Object o, String log){
-        System.out.println(o.getClass().getSimpleName()+", (object: "+o+") "+ log ) ;
+        String s = o.toString();
+        String objectId;
+        if (s.lastIndexOf("@")!=-1) {
+            objectId = s.substring(s.lastIndexOf("@")+1);
+        } else {
+            objectId = s;
+        }
+
+        System.out.println(o.getClass().getSimpleName()+", (object: "+ objectId +") "+ log ) ;
     }
 
     static void printInsideStatic(Class claz, String log){

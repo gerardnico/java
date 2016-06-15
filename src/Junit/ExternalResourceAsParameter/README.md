@@ -4,6 +4,8 @@
 
 How to run the same test with several different set of External Resources as parameters (ie values).
 
+The output will give you the lifecycle of each Junit steps in a run.
+
 
 ## Implementation
 
@@ -38,28 +40,28 @@ TheClassSimpleName, (static method|object), function name, a text explicating
 When running [MyParameterizedTest.java](MyParameterizedTest.java), you got the following output:
 
 ```
-MyExternalResourceRule, (object: Junit.ExternalResourceAsParameter.MyExternalResourceRule@17d10166) constructor, immutable resource created
+MyExternalResourceRule, (object: 17d10166) constructor, immutable resource created
 MyParameterizedTest, (static method) data
 MyDatabase, (object: MyDatabase{databaseName='Database', status='Open'}) Open, Database
-MyExternalResourceRule, (object: Junit.ExternalResourceAsParameter.MyExternalResourceRule@17d10166) before, mutable resource open MyDatabase{databaseName='Database', status='Open'}
+MyExternalResourceRule, (object: 17d10166) before, mutable resource open MyDatabase{databaseName='Database', status='Open'}
 MyParameterizedTest, (static method) beforeClass
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@3830f1c0) Constructor
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@3830f1c0) before with Resource (Immutable Resource (String))
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@3830f1c0) TestB with Resource (Immutable Resource (String))
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@3830f1c0) after with Resource (Immutable Resource (String))
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@782830e) Constructor
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@782830e) before with Resource (Immutable Resource (String))
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@782830e) TestA with Resource (Immutable Resource (String))
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@782830e) after with Resource (Immutable Resource (String))
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@3fb4f649) Constructor
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@3fb4f649) before with Resource (MyDatabase{databaseName='Database', status='Open'})
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@3fb4f649) TestB with Resource (MyDatabase{databaseName='Database', status='Open'})
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@3fb4f649) after with Resource (MyDatabase{databaseName='Database', status='Open'})
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@200a570f) Constructor
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@200a570f) before with Resource (MyDatabase{databaseName='Database', status='Open'})
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@200a570f) TestA with Resource (MyDatabase{databaseName='Database', status='Open'})
-MyParameterizedTest, (object: Junit.ExternalResourceAsParameter.MyParameterizedTest@200a570f) after with Resource (MyDatabase{databaseName='Database', status='Open'})
+MyParameterizedTest, (object: 3830f1c0) Constructor
+MyParameterizedTest, (object: 3830f1c0) before with Resource (Immutable Resource (String))
+MyParameterizedTest, (object: 3830f1c0) TestB with Resource (Immutable Resource (String))
+MyParameterizedTest, (object: 3830f1c0) after with Resource (Immutable Resource (String))
+MyParameterizedTest, (object: 782830e) Constructor
+MyParameterizedTest, (object: 782830e) before with Resource (Immutable Resource (String))
+MyParameterizedTest, (object: 782830e) TestA with Resource (Immutable Resource (String))
+MyParameterizedTest, (object: 782830e) after with Resource (Immutable Resource (String))
+MyParameterizedTest, (object: 3fb4f649) Constructor
+MyParameterizedTest, (object: 3fb4f649) before with Resource (MyDatabase{databaseName='Database', status='Open'})
+MyParameterizedTest, (object: 3fb4f649) TestB with Resource (MyDatabase{databaseName='Database', status='Open'})
+MyParameterizedTest, (object: 3fb4f649) after with Resource (MyDatabase{databaseName='Database', status='Open'})
+MyParameterizedTest, (object: 200a570f) Constructor
+MyParameterizedTest, (object: 200a570f) before with Resource (MyDatabase{databaseName='Database', status='Open'})
+MyParameterizedTest, (object: 200a570f) TestA with Resource (MyDatabase{databaseName='Database', status='Open'})
+MyParameterizedTest, (object: 200a570f) after with Resource (MyDatabase{databaseName='Database', status='Open'})
 MyParameterizedTest, (static method) afterClass
-MyExternalResourceRule, (object: Junit.ExternalResourceAsParameter.MyExternalResourceRule@17d10166) after, shutdown
+MyExternalResourceRule, (object: 17d10166) after, shutdown
 MyDatabase, (object: MyDatabase{databaseName='Database', status='Close'}) Close, Database
 ```

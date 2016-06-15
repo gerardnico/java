@@ -29,7 +29,7 @@ public class MyParameterizedTest  {
 
     public MyParameterizedTest(Object externalResource) {
         this.externalResource = externalResource;
-        MyPrints.printInsideObject(this,"Constructor");
+        MyPrints.printInsideObject(this,"Constructor\n");
     }
 
     @Before

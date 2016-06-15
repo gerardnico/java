@@ -9,29 +9,26 @@ import org.junit.runners.Suite;
 
 /**
  * Created by gerard on 13-06-2016.
+ * We have only in the suite but it gives a good view of what happens
  */
-@RunWith( Suite.class )
-@Suite.SuiteClasses( {
-        MyParameterizedTest.class,
-        Tests2Test.class,
-} )
-public class SuiteTest {
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+        MyParameterizedTest.class
+})
+public class MySuiteTest {
 
     @BeforeClass
     static public void beforeClass() {
-        println("beforeClass");
+        MyPrints.printInsideStatic(MySuiteTest.class, "beforeClass");
     }
 
     @AfterClass
     static public void afterClass() {
-        println("afterClass");
+        MyPrints.printInsideStatic(MySuiteTest.class, "afterClass");
     }
 
     @ClassRule
-    public static ExternalResource resource = new MyExternalResource();
+    public static ExternalResource resource = new MyExternalResourceRule();
 
-    static void println(String log){
-        System.out.println(SuiteTest.class.getSimpleName()+", "+ log + " (static)") ;
-    }
 
 }

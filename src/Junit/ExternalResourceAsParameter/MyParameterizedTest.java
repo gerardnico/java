@@ -8,7 +8,7 @@ import org.junit.runners.Parameterized;
  * Created by gerard on 13-06-2016.
  */
 @RunWith(value = Parameterized.class)
-public class MyParameterizedTest extends AbstractTest {
+public class MyParameterizedTest  {
 
 
     // The set of test (and/of parameters) is declared below
@@ -21,24 +21,25 @@ public class MyParameterizedTest extends AbstractTest {
     }
 
     @ClassRule
-    public static MyExternalResource resource = new MyExternalResource();
+    public static MyExternalResourceRule resource = new MyExternalResourceRule();
 
-    String externalResource;
+    // Object because we got a string and a database Object
+    Object externalResource;
 
 
-    public MyParameterizedTest(String externalResource) {
+    public MyParameterizedTest(Object externalResource) {
         this.externalResource = externalResource;
-        printInsideObject("Constructor");
+        MyPrints.printInsideObject(this,"Constructor");
     }
 
     @Before
     public void before() {
-        printInsideObject("before with Resource ("+externalResource+")");
+        MyPrints.printInsideObject(this,"before with Resource ("+externalResource+")");
     }
 
     @After
     public void after() {
-        printInsideObject("after with Resource ("+externalResource+")");
+        MyPrints.printInsideObject(this,"after with Resource ("+externalResource+")");
     }
 
     @BeforeClass
@@ -53,17 +54,17 @@ public class MyParameterizedTest extends AbstractTest {
 
     @Test
     public void testA() {
-        printInsideObject("TestB with Resource ("+externalResource+")");
+        MyPrints.printInsideObject(this,"TestB with Resource ("+externalResource+")");
     }
 
     @Test
     public void testB() {
-        printInsideObject("TestA with Resource ("+externalResource+")");
+        MyPrints.printInsideObject(this,"TestA with Resource ("+externalResource+")");
     }
 
 
     static void printInsideStatic(String log){
-        AbstractTest.printInsideStatic(MyParameterizedTest.class, log) ;
+        MyPrints.printInsideStatic(MyParameterizedTest.class, log) ;
     }
 
 

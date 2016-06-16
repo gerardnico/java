@@ -54,12 +54,12 @@ public class MyParameterizedTest  {
 
     @Test
     public void testA() {
-        MyPrints.printInsideObject(this,"TestB with Resource ("+externalResource+")");
+        MyPrints.printInsideObject(this,"TestA with Resource ("+externalResource+")");
     }
 
     @Test
     public void testB() {
-        MyPrints.printInsideObject(this,"TestA with Resource ("+externalResource+")");
+        MyPrints.printInsideObject(this,"TestB with Resource ("+externalResource+")");
     }
 
 

@@ -17,7 +17,9 @@
 
   * [File Reader and Writer](FileReaderWriterTest.java] decodes byte in character one byte at a time. You can still performs operation by char, char array and line.
 
+### Standard Input
 
+  * [Print Standard Input](PrintStandardInput.java) Shows how to get the standard input from a pipe redirection.
 
 ## Reference
 

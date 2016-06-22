@@ -48,18 +48,19 @@ public class FileReaderWriterTest {
 
 
         BufferedReader inputStream = null;
-        PrintWriter outputStream = null;
+        BufferedWriter outputStream = null;
 
         try {
 
             inputStream = new BufferedReader(new FileReader(Parameters.FILE_PATH_READ));
-            outputStream = new PrintWriter(new FileWriter(Parameters.FILE_PATH_WRITE));
+            outputStream = new BufferedWriter(new FileWriter(Parameters.FILE_PATH_WRITE));
 
             String l;
             int counterLine = 0;
             while ((l = inputStream.readLine()) != null) {
                 counterLine++;
-                outputStream.println(l);
+                outputStream.write(l.toCharArray());
+                outputStream.newLine();
             }
 
             System.out.println("The File has ("+counterLine+") lines.");

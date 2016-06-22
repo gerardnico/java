@@ -23,7 +23,7 @@ public class MyRuleParametersGenerator implements org.junit.rules.TestRule {
 
 
     @Override
-    public Statement apply(Statement statement, Description description) {
+    public Statement apply(final Statement statement, Description description) {
         return new Statement() {
             @Override
             public void evaluate() throws Throwable {

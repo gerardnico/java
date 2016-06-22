@@ -13,6 +13,7 @@ needed)
   * [Enum](Enum)
   * [Configuration values](Config)
   * [Time](Time)
+  * [Integer](Integer)
 
 ### Concurrency
 
@@ -29,3 +30,15 @@ needed)
 ### Service Provider Interfaces (Extension)
 
   * [Service Provider Interfaces](Service)
+
+### IO
+
+  * [IO Streams](Io)
+
+### Regular Expression
+
+  * [Regular Expression](RegularExpression)
+  
+### Script Engine
+  
+  * [Script](Script)

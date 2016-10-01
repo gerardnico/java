@@ -15,7 +15,7 @@
   
 ### Character
 
-  * [File Reader and Writer](FileReaderWriterTest.java] decodes byte in character one byte at a time. You can still performs operation by char, char array and line.
+  * [File Reader and Writer](FileReaderWriterTest.java) decodes byte in character one byte at a time. You can still performs operation by char, char array and line.
 
 ### Standard Input
 

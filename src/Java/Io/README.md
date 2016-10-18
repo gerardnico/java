@@ -23,7 +23,7 @@
   
 ### Access
 
-  * [File Random Access][RandomAccessTest.java] shows how to access a file randomly.
+  * [File Random Access](RandomAccessTest.java) shows how to access a file randomly.
   
 ### Standard Input
 

@@ -10,5 +10,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="groovy-2.4.7 (2)" level="application" />
     <orderEntry type="library" name="scala-sdk-2.11.7" level="application" />
+    <orderEntry type="library" name="antlr-4.5-complete" level="project" />
+    <orderEntry type="library" name="org.xerial:sqlite-jdbc:3.14.2.1" level="project" />
   </component>
 </module>

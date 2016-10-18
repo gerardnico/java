@@ -17,9 +17,18 @@
 
   * [File Reader and Writer](FileReaderWriterTest.java) decodes byte in character one byte at a time. You can still performs operation by char, char array and line.
 
+### String
+
+  * [File To String](FileToStringTest.java) shows how to convert a file into a string.
+  
+### Access
+
+  * [File Random Access][RandomAccessTest.java] shows how to access a file randomly.
+  
 ### Standard Input
 
   * [Print Standard Input](PrintStandardInput.java) Shows how to get the standard input from a pipe redirection.
+  * [Print Standard Output](PrintStandardOutput.java) Shows how to print to standard output.
 
 ## Reference
 

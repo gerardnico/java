@@ -1,4 +1,4 @@
-package Junit.ParameterizedTest;
+package Java.Junit.ParameterizedTest;
 
 /**
  * Created by gerard on 13-06-2016.
@@ -13,9 +13,11 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
-
+/**
+ * Created by gerard on 29-05-2016.
+ */
 @RunWith(value = Parameterized.class)
-public class ParametersWithParameterAnnotationTest {
+public class ParametersWithConstructorTest {
 
 
     // The set of test (and/of parameters) is declared below
@@ -30,35 +32,35 @@ public class ParametersWithParameterAnnotationTest {
         });
     }
 
-
     // The test in the ParametersTest class
     // will be run several times with different set of the below field (Named parameters)
+    private int testId;
+    private int numberA;
+    private int numberB;
+    private int subtractionExpected;
+    private final int additionExpected;
 
-    // The Parameters are passed and initialized via the annotation injection
-    // And they must be Public !
-    @Parameterized.Parameter // first data value (0) is default
-    public int testId;
-    @Parameterized.Parameter(value = 1)
-    public int numberA;
-    @Parameterized.Parameter(value = 2)
-    public int numberB;
-    @Parameterized.Parameter(value = 3)
-    public int subtractionExpected;
-    @Parameterized.Parameter(value = 4)
-    public int additionExpected;
-
+    // The Parameters are passed and initialized via this constructor
+    public ParametersWithConstructorTest(int testId, int numberA, int numberB, int subtractionExpected, int additionExpected) {
+        System.out.println("\nConstructor test "+testId+"\n");
+        this.testId =  testId;
+        this.numberA = numberA;
+        this.numberB = numberB;
+        this.subtractionExpected = subtractionExpected;
+        this.additionExpected = additionExpected;
+    }
 
 
     @Test
     public void test_subtraction() {
         System.out.println("test_substraction: test "+testId);
-        assertEquals(subtractionExpected, numberA - numberB);
+        Assert.assertEquals(subtractionExpected, numberA - numberB);
     }
 
     @Test
     public void test_addition() {
         System.out.println("test_addition: test "+testId);
-        assertEquals(additionExpected, numberA + numberB);
+        Assert.assertEquals(additionExpected, numberA + numberB);
     }
 
     @Before
@@ -72,21 +74,21 @@ public class ParametersWithParameterAnnotationTest {
     @After
     public void after() throws IOException {
 
-        System.out.println("After test "+testId + "\n");
+        System.out.println("After test "+testId);
 
     }
 
     @BeforeClass
     static public void beforeClass() throws IOException {
 
-        System.out.println("Before Class test \n\n");
+        System.out.println("Before Class test ");
 
     }
 
     @AfterClass
     static public void afterClass() throws IOException {
 
-        System.out.println("After Class test \n");
+        System.out.println("After Class test ");
 
     }
 

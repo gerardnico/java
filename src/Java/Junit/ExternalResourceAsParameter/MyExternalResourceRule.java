@@ -1,4 +1,4 @@
-package Junit.ExternalResourceAsParameter;
+package Java.Junit.ExternalResourceAsParameter;
 
 import org.junit.rules.ExternalResource;
 

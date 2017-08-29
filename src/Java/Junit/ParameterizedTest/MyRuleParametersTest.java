@@ -1,4 +1,4 @@
-package Junit.ParameterizedTest;
+package Java.Junit.ParameterizedTest;
 
 import org.junit.ClassRule;
 import org.junit.Test;

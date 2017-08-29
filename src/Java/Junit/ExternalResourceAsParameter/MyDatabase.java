@@ -1,4 +1,4 @@
-package Junit.ExternalResourceAsParameter;
+package Java.Junit.ExternalResourceAsParameter;
 
 /**
  * Created by gerard on 15-06-2016.

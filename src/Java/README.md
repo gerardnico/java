@@ -14,6 +14,7 @@ needed)
   * [Configuration values](Config)
   * [Time](Time)
   * [Integer](Integer)
+  * [Collection](Collection)
 
 ### Concurrency
 

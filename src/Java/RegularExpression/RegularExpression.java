@@ -45,18 +45,20 @@ public class RegularExpression {
         String sourceText = "<top><node1>content</node1><node2>content</node2></top>" +
                 "<top><node1>content2</node1></top>";
         Pattern pattern = Pattern.compile("<top><node1>(.*?)</node1>(<node2>(.*)</node2>)*</top>");
+
         Matcher matcher = pattern.matcher(sourceText);
         int expectedGroup = 3;
         Assert.assertEquals("There is "+expectedGroup+" groups in this pattern", expectedGroup, matcher.groupCount());
-        // Try to find the first sequence match
-        Assert.assertEquals("There is a match", true, matcher.find());
+
         // Print the matches
-        boolean stillOne = true;
-        Integer seq = 1;
-        while (true) {
+        Integer seqCounter = 0;
+        // Try to find the first sequence match
+        while (matcher.find()) {
+
+            seqCounter++;
 
             System.out.println();
-            System.out.println("Sequence " + seq);
+            System.out.println("Sequence " + seqCounter);
 
             for (int i = 0; i <= matcher.groupCount(); i++) {
 
@@ -67,14 +69,9 @@ public class RegularExpression {
                     System.out.printf("\n");
                 }
             }
-            stillOne = matcher.find();
-            if (!stillOne) {
-                break;
-            }
-            seq++;
 
         }
-        Assert.assertEquals("There was two matches",Integer.valueOf(2), seq);
+        Assert.assertEquals("There was two matches",Integer.valueOf(2), seqCounter);
 
     }
 

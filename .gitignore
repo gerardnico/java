@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 /.idea
-/Generic.iml
+/*.iml
 /out
 
 /res/GoogleSheet/client_id.json

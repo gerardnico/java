@@ -1,7 +1,7 @@
 package Java.RegularExpression;
 
 
-
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.net.URI;
@@ -20,15 +20,15 @@ public class RegularExpression {
         String url = URI.create("sftp://user:password@localhost").toString();
         Pattern pattern = Pattern.compile("(sftp://)([^@]*)(.*)(.*)");
         Matcher matcher = pattern.matcher(url);
-        System.out.println("There is " + matcher.groupCount() + " group (ie four ()) in the pattern ("+pattern.toString()+"). This is a static property of the pattern (why a function in the matcher ??)");
+        System.out.println("There is " + matcher.groupCount() + " group (ie four ()) in the pattern (" + pattern.toString() + "). This is a static property of the pattern (why a function in the matcher ??)");
         System.out.println();
         // Try to find the first sequence match
         boolean doWeHaveAMatch = matcher.find();
-        if (doWeHaveAMatch==true) {
+        if (doWeHaveAMatch == true) {
             // Print the matches
             for (int i = 0; i <= matcher.groupCount(); i++) {
                 System.out.printf(i + " : " + matcher.group(i));
-                if (i==0) {
+                if (i == 0) {
                     System.out.printf(" (the index 0 contains the whole string that matches)\n");
                 } else {
                     System.out.printf("\n");
@@ -38,4 +38,45 @@ public class RegularExpression {
 
     }
 
+    @Test
+    public void HierarchyGroupsTest() {
+
+
+        String sourceText = "<top><node1>content</node1><node2>content</node2></top>" +
+                "<top><node1>content2</node1></top>";
+        Pattern pattern = Pattern.compile("<top><node1>(.*?)</node1>(<node2>(.*)</node2>)*</top>");
+        Matcher matcher = pattern.matcher(sourceText);
+        int expectedGroup = 3;
+        Assert.assertEquals("There is "+expectedGroup+" groups in this pattern", expectedGroup, matcher.groupCount());
+        // Try to find the first sequence match
+        Assert.assertEquals("There is a match", true, matcher.find());
+        // Print the matches
+        boolean stillOne = true;
+        Integer seq = 1;
+        while (true) {
+
+            System.out.println();
+            System.out.println("Sequence " + seq);
+
+            for (int i = 0; i <= matcher.groupCount(); i++) {
+
+                System.out.printf(i + " : " + matcher.group(i));
+                if (i == 0) {
+                    System.out.printf(" (the index 0 contains the whole string that matches)\n");
+                } else {
+                    System.out.printf("\n");
+                }
+            }
+            stillOne = matcher.find();
+            if (!stillOne) {
+                break;
+            }
+            seq++;
+
+        }
+        Assert.assertEquals("There was two matches",Integer.valueOf(2), seq);
+
+    }
+
 }
+

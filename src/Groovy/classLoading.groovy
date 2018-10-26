@@ -20,9 +20,9 @@ package Groovy
 
 
 @GrabConfig(systemClassLoader=true)
-@Grapes([
-        @Grab(group='com.gerardnico', module='niofs-sftp', version='1.0.0'),
-        ])
+//@Grapes([
+//        @Grab(group='com.gerardnico', module='niofs-sftp', version='1.0.0'),
+//        ])
 
 import java.nio.file.spi.FileSystemProvider
 

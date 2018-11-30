@@ -16,7 +16,7 @@ public class HelloWorldTest extends ExternalResources{
     public void test2Test() {
 
 
-        System.out.println("Hello World from test2");
+        System.out.println("Hello World from testBasic");
 
 
     }

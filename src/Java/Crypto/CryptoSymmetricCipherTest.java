@@ -21,15 +21,11 @@ public class CryptoSymmetricCipherTest {
 
 
 
-    public static String encrypt(SecretKeySpec skeySpec, String initVector, String value) {
+    public static String encrypt(SecretKeySpec skeySpec, byte[] initVector, String value) {
         try {
 
 
-            // Key length - 16 for AES 128, 32 for AES256
-            int key_length = 32;
 
-            // AES is a 128-bit block cipher, so IVs and counter nonces are 16 bytes
-            int iv_length = 128 / 8;
 
             // Padding PKCS7
 
@@ -41,7 +37,7 @@ public class CryptoSymmetricCipherTest {
 
             //skeySpec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "AES");
 
-            IvParameterSpec iv = new IvParameterSpec(initVector.getBytes(StandardCharsets.UTF_8));
+            IvParameterSpec iv = new IvParameterSpec(initVector);
 
 
             // Note
@@ -66,10 +62,10 @@ public class CryptoSymmetricCipherTest {
         }
     }
 
-    public static String decrypt(SecretKeySpec key, String initVector, String encrypted) {
+    public static String decrypt(SecretKeySpec key, byte[] initVector, String encrypted) {
 
         try {
-            IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
+            IvParameterSpec iv = new IvParameterSpec(initVector);
 
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
             cipher.init(Cipher.DECRYPT_MODE, key, iv);
@@ -95,7 +91,7 @@ public class CryptoSymmetricCipherTest {
     @Test
     public void testEnc() throws NoSuchAlgorithmException, InvalidKeySpecException {
 
-        String key = "welcome1";
+        String passphrase = "welcome1";
 
         // key lengths: 128, 192 and 256 bits.
         // https://en.wikipedia.org/wiki/Advanced_Encryption_Standard
@@ -104,21 +100,34 @@ public class CryptoSymmetricCipherTest {
         // random bytes
         byte[] salt = new byte[32];
         new Random().nextBytes(salt);
-        // Create a secret key from a password
-        SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-        KeySpec ks = new PBEKeySpec(key.toCharArray(),salt,1024,keyLength);
-        SecretKey s = f.generateSecret(ks);
-        SecretKeySpec skeySpec = new SecretKeySpec(s.getEncoded(),"AES");
 
+        SecretKeySpec skeySpec = generateKeyFromPassphrase(passphrase, keyLength, salt);
 
+        // Key length - 16 for AES 128, 32 for AES256
+        int key_length = 32;
 
-
-        String initVector = "RandomInitVector"; // 16 bytes IV
+        // AES is a 128-bit block cipher, so IVs and counter nonces are 16 bytes
+        int aes_block_size = 128;
+        int iv_length = aes_block_size / 8;
+        byte[] initVector = new byte[iv_length];
+        new Random().nextBytes(initVector);
 
         final String encrypt = encrypt(skeySpec, initVector, "Hello World");
         System.out.println(encrypt);
+
+
+        skeySpec = generateKeyFromPassphrase(passphrase, keyLength, salt);
         final String decrypt = decrypt(skeySpec, initVector, encrypt);
         System.out.println(decrypt);
 
+    }
+
+    private SecretKeySpec generateKeyFromPassphrase(String passphrase, int keyLength, byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        // Create a secret key from a password
+        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        final int numberOfIterations = 10000; // same as Ansible
+        KeySpec pbeKeySpec = new PBEKeySpec(passphrase.toCharArray(),salt, numberOfIterations,keyLength);
+        SecretKey secretKey = secretKeyFactory.generateSecret(pbeKeySpec);
+        return new SecretKeySpec(secretKey.getEncoded(),"AES");
     }
 }

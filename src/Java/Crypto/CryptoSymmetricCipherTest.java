@@ -3,21 +3,46 @@ package Java.Crypto;
 import org.junit.Test;
 
 import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
 import java.util.Base64;
+import java.util.Random;
 
-public class CryptoTest {
-
-
-
+public class CryptoSymmetricCipherTest {
 
 
-    public static String encrypt(String key, String initVector, String value) {
+
+
+
+    public static String encrypt(SecretKeySpec skeySpec, String initVector, String value) {
         try {
+
+
+            // Key length - 16 for AES 128, 32 for AES256
+            int key_length = 32;
+
+            // AES is a 128-bit block cipher, so IVs and counter nonces are 16 bytes
+            int iv_length = 128 / 8;
+
+            // Padding PKCS7
+
+            // # COMBINE SALT, DIGEST AND DATA
+            // hmac = HMAC(b_key2, hashes.SHA256(), CRYPTOGRAPHY_BACKEND)
+            // hmac.update(b_ciphertext)
+            // b_hmac = hmac.finalize()
+
+
+            //skeySpec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "AES");
+
             IvParameterSpec iv = new IvParameterSpec(initVector.getBytes(StandardCharsets.UTF_8));
-            SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "AES");
+
 
             // Note
             // KerbTicket Encryption Type: AES-256-CTS-HMAC-SHA1-96
@@ -41,14 +66,13 @@ public class CryptoTest {
         }
     }
 
-    public static String decrypt(String key, String initVector, String encrypted) {
+    public static String decrypt(SecretKeySpec key, String initVector, String encrypted) {
 
         try {
             IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
-            SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
 
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
+            cipher.init(Cipher.DECRYPT_MODE, key, iv);
 
             final byte[] decode = Base64.getDecoder().decode(encrypted);
             byte[] original = cipher.doFinal(decode);
@@ -69,7 +93,7 @@ public class CryptoTest {
     }
 
     @Test
-    public void testEnc() {
+    public void testEnc() throws NoSuchAlgorithmException, InvalidKeySpecException {
 
         String key = "welcome1";
 
@@ -77,18 +101,24 @@ public class CryptoTest {
         // https://en.wikipedia.org/wiki/Advanced_Encryption_Standard
         final int keyLength = 256;
 
-        final int keyAdd = (keyLength / 8) - key.length();
+        // random bytes
+        byte[] salt = new byte[32];
+        new Random().nextBytes(salt);
+        // Create a secret key from a password
+        SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        KeySpec ks = new PBEKeySpec(key.toCharArray(),salt,1024,keyLength);
+        SecretKey s = f.generateSecret(ks);
+        SecretKeySpec skeySpec = new SecretKeySpec(s.getEncoded(),"AES");
 
-        String keyTarget = new StringBuilder()
-                .append(key)
-                .append((new String(new char[keyAdd]).replace("\0", "b")))
-                .toString();
+
+
 
         String initVector = "RandomInitVector"; // 16 bytes IV
 
-        final String encrypt = encrypt(keyTarget, initVector, "Hello World");
+        final String encrypt = encrypt(skeySpec, initVector, "Hello World");
         System.out.println(encrypt);
-        final String decrypt = decrypt(keyTarget, initVector, encrypt);
+        final String decrypt = decrypt(skeySpec, initVector, encrypt);
         System.out.println(decrypt);
+
     }
 }

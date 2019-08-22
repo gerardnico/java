@@ -1,5 +1,7 @@
 # Java Type Demo Generic
 
- 
-## DemoGenericContainerNotTypeSafe
-Demonstrate how to use a basic [generic class](http://gerardnico.com/wiki/language/java/generic_class) in Java and shows that the Collection container are not [typesafe](http://gerardnico.com/wiki/language/typesafe).
+
+## Usage
+  * [Container class](./Container/REAMDE.md). A class that contains element (All Collection)
+  * [Literal class](./Literal/README.md). for instance to create an object from a query.  
+  

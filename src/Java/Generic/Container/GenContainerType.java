@@ -1,14 +1,15 @@
-package Java.Generic;
+package Java.Generic.Container;
 
 /**
  * Created by gerard on 06-01-2016.
+ * Generic permits to create a container for special type
  */
-public class GenType<T> {
+public class GenContainerType<T> {
 
     // T stands for "Type"
     private T value;
 
-    public GenType(T value) {
+    public GenContainerType(T value) {
         this.value = value;
     }
 
@@ -23,4 +24,5 @@ public class GenType<T> {
     public T getValue() {
         return value;
     }
+
 }

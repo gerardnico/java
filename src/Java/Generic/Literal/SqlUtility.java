@@ -17,7 +17,8 @@ public class SqlUtility {
         Collection<T> result = new ArrayList<T>();
 
         /* Run sql query using jdbc */
-        for (/* Iterate over jdbc results. */) {
+        /* Iterate over jdbc results. */
+        for (int i=0;i<1;i++) {
             T item = genericFactory.make();
             /* Use reflection and set all of item's
              * fields from sql results.
@@ -34,7 +35,8 @@ public class SqlUtility {
     public static Collection selectWithoutGeneric(Class c, String query)  {
         Collection result = new ArrayList();
         /* Run sql query using jdbc. */
-        for (/* Iterate over jdbc results. */ ) {
+        /* Iterate over jdbc results. */
+        for (int i=0;i<1;i++) {
             Object item = null;
             try {
                 item = c.newInstance();
@@ -53,7 +55,8 @@ public class SqlUtility {
     public static <T> Collection<T> selectWithGeneric(Class<T> c, String sqlStatement) {
         Collection<T> result = new ArrayList<T>();
         /* Run sql query using jdbc. */
-        for (/* Iterate over jdbc results. */ ) {
+        /* Iterate over jdbc results. */
+        for (int i=0;i<1;i++) {
             T item = null;
             try {
                 item = c.newInstance();

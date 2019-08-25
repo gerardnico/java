@@ -8,6 +8,8 @@ The package that shows how to use generic literal class to return safely an obje
 
 Technique of using class literals as run time type tokens is a very useful trick to know. It's an idiom that's used extensively in the new APIs for manipulating annotations, for example.
 
+[Class Literals as Runtime-Type Tokens](https://docs.oracle.com/javase/tutorial/extra/generics/literals.html)
+
 Call Example are in [Main](Main.java)
 
 ```java

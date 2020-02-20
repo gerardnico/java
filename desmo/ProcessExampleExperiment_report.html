@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Tim Lechler">
+<meta name="GENERATOR" content="DESMO-J 2.5.1e">
+<title>.\ProcessExampleExperiment_report.html</title></head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+<a name="top"></a><br />
+<p></p><h2><div align="center">ProcessExampleExperiment Report</div></h2><p></p><div align="center"><h3>Model Simple Process-Oriented Van Carrier Model</h3></div>
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+<tr valign="top"><td><b><div align="left">Description</div></b></td></tr>
+<tr valign="top"><td>This model describes a queueing system located at a container terminal. Trucks will arrive and require the loading of a container. A van carrier (VC) is on duty and will head off to find the required container in the storage. It will then load the container onto the truck. Afterwards, the truck leaves the terminal. In case the VC is busy, the truck waits for its turn on the parking-lot. If the VC is idle, it waits on its own parking spot for the truck to come.</td></tr>
+</table><p></p>
+<font size="-1"><a href="#top">top</a></font><p></p>
+<hr><div align="center"><h3>Simulation Run</h3></div>
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+<tr valign="top"><td><b><div align="left">Property</div></b></td><td><b><div align="left">Content</div></b></td></tr>
+<tr valign="top"></tr>
+<tr valign="top"><td>Simulation duration</td><td>Experiment run from 0.0000 until 90000.0000.</td></tr>
+<tr valign="top"><td>Computation duration (HH:MM:SS)</td><td>00:00:08</td></tr>
+<tr valign="top"><td>Resets</td><td>No resets during the experiment run.</td></tr>
+<tr valign="top"><td>Seed</td><td>979</td></tr>
+<tr valign="top"><td>Errors</td><td>No errors or warnings have occurred.</td></tr>
+</table><p></p>
+<font size="-1"><a href="#top">top</a></font><p></p>
+<hr><div align="center"><h3>Queues</h3></div>
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+<tr valign="top"><td><b><div align="left">Title</div></b></td><td><b><div align="left">Qorder</div></b></td><td><b><div align="left">(Re)set</div></b></td><td><b><div align="left">Obs</div></b></td><td><b><div align="left">QLimit</div></b></td><td><b><div align="left">Qmax</div></b></td><td><b><div align="left">Qnow</div></b></td><td><b><div align="left">Qavg.</div></b></td><td><b><div align="left">Zeros</div></b></td><td><b><div align="left">max.Wait</div></b></td><td><b><div align="left">avg.Wait</div></b></td><td><b><div align="left">refus.</div></b></td></tr>
+<tr valign="top"><td>Truck Queue</td><td>FIFO</td><td>0.0000</td><td>30008</td><td>unlimit.</td><td>27</td><td>6</td><td>2.08993</td><td>7309</td><td>65.8606</td><td>6.2658</td><td>0</td></tr>
+<tr valign="top"><td>idle VC Queue</td><td>FIFO</td><td>0.0000</td><td>7309</td><td>unlimit.</td><td>2</td><td>0</td><td>0.33221</td><td>1</td><td>33.8131</td><td>4.0907</td><td>0</td></tr>
+</table><p></p>
+<font size="-1"><a href="#top">top</a></font><p></p>
+<hr><div align="center"><h3>Distributions</h3></div>
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+<tr valign="top"><td><b><div align="left">Title</div></b></td><td><b><div align="left">(Re)set</div></b></td><td><b><div align="left">Obs</div></b></td><td><b><div align="left">Type</div></b></td><td><b><div align="left">Parameter 1</div></b></td><td><b><div align="left">Parameter 2</div></b></td><td><b><div align="left">Parameter 3</div></b></td><td><b><div align="left">Seed</div></b></td></tr>
+<tr valign="top"><td>ServiceTimeStream</td><td>0.0000</td><td>30008</td><td>Cont Uniform</td><td>3.0</td><td>7.0</td><td> </td><td>9829105</td></tr>
+<tr valign="top"><td>TruckArrivalTimeStream</td><td>0.0000</td><td>30014</td><td>Cont Exponential</td><td>3.0</td><td> </td><td> </td><td>68994544</td></tr>
+</table><p></p>
+<font size="-1"><a href="#top">top</a></font><p></p>
+<font size="-2">created using <a href="http://www.desmoj.de">DESMO-J</A> Version 2.5.1e at Thu Feb 20 15:29:27 CET 2020 - DESMO-J is licensed under <A HREF=http://www.apache.org/licenses/LICENSE-2.0>Apache License, Version 2.0</A></font>
+</body></html>

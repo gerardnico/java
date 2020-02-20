@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'com.gerardnico'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    ivy {
+        url 'https://iweb.dl.sourceforge.net/project'
+        patternLayout {
+            artifact "[organization]/[organization]/[revision]/[module]-[revision]-bin.[ext]"
+        }
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'desmoj', name: 'desmoj', version: '2.5.1e'
+}

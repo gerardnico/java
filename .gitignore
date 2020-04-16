@@ -3,5 +3,5 @@
 *.iml
 /out
 
-/demo/res/GoogleSheet/client_id.json
+googlesheet_client_id.json
 target/
